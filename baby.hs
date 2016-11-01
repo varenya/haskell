@@ -163,3 +163,8 @@ treeElem x (Node a left right)
 				| x == a = True
 				| x < a = treeElem x left
 				| x > a = treeElem x right
+
+-- Type Classes and Functors!
+instance Functor Tree where
+	fmap f EmptyTree = EmptyTree
+	fmap f (Node x left right) = Node (f x) (fmap f left) (fmap f right)
